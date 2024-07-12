@@ -3,20 +3,18 @@ primes = []
 not_primes = []
 
 for i in numbers:
-    is_Prime = True
+    is_prime = True
     if i < 2:
-        is_Prime = False
+        is_prime = False
     else:
-        for j in range(2, int(i) + 1):
-            if (i % j // 2) == 0:
-                is_Prime = True
-            else:
-                is_Prime = False
-
-    if is_Prime:
+        for j in range(2, int(i // 2) + 1):
+            if i % j == 0:
+                is_prime = False
+                break
+    if is_prime:
         primes.append(i)
-    elif is_Prime == False:
+    else:
         not_primes.append(i)
 
-print('Простые числа: ', primes)
-print('Составные числа: ', not_primes)
+print('Простые числа:', primes)
+print('Составные числа:', not_primes)
